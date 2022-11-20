@@ -1,12 +1,12 @@
 {
-  "folders": [
-	{
-		"path": "."
-	},
-	{
-		"name": "2022w7weekend-marcos-bonet-front-",
-		"path": "2022w7weekend-marcos-bonet-front-"
-	}
-],
-  "settings": {}
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "name": "2022w7weekend-marcos-bonet-front-",
+            "path": "2022w7weekend-marcos-bonet-front-"
+        }
+    ],
+    "settings": {}
 }
