@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RobotRepository } from '../services/robot.respository.js';
 import { rootState } from '../store/store.js';
 import * as ac from '../reducer/action.creator.js';
-import { ProtoRobot, RobotTypes, Id } from '../types/robot.Types.js';
+import { ProtoRobot, RobotTypes } from '../types/robot.Types.js';
+
 export const useRobot = () => {
     const robots = useSelector((state: rootState) => state.robots);
     const dispatcher = useDispatch();
@@ -20,9 +21,9 @@ export const useRobot = () => {
         [apiRobot, dispatcher]
     );
 
-    const handleAdd = (newTask: ProtoRobot) => {
+    const handleAdd = (newRobot: ProtoRobot) => {
         apiRobot
-            .create(newTask)
+            .create(newRobot)
             .then((robot: RobotTypes) => dispatcher(ac.addActionCreator(robot)))
             .catch((error: Error) => console.log(error.name, error.message));
     };
@@ -36,7 +37,7 @@ export const useRobot = () => {
             .catch((error: Error) => console.log(error.name, error.message));
     };
 
-    const handleDelete = (id: string) => {
+    const handleDelete = (id: number) => {
         apiRobot
             .delete(id)
             .then(() => dispatcher(ac.deleteActionCreator(id)))
