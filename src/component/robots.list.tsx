@@ -15,7 +15,7 @@ export function RobotList() {
         <section>
             <h2>{title}</h2>
 
-            <ul className="task_list">
+            <ul>
                 {robots.map((item: RobotTypes) => (
                     <RobotItem key={item.id} item={item}></RobotItem>
                 ))}

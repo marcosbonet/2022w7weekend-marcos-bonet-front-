@@ -3,7 +3,7 @@ import { MemoryRouter as Router } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { rootState, rootStore } from '../store/store';
+import { rootStore } from '../store/store';
 import { robotReducer } from '../reducer/reducer';
 import { RobotItem } from './robots.item';
 import { useRobot } from '../hook/use.robot';
