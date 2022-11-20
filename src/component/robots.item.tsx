@@ -9,12 +9,10 @@ export function RobotItem({ item }: { item: RobotTypes }) {
     };
 
     return (
-        <li className="">
+        <li>
             <span>{item.id}</span>
             <span>{item.robotName}</span>
-            <span className="button" onClick={handleClick} role="button">
-                🗑️
-            </span>
+            <span onClick={handleClick}>🗑️</span>
         </li>
     );
 }

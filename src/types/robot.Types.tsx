@@ -1,5 +1,5 @@
 export type RobotTypes = {
-    id: number;
+    id: string;
     robotName: string;
     velocity: number;
     resistent: number;
@@ -15,7 +15,7 @@ export type ProtoRobot = {
     img?: string;
 };
 export type Id = {
-    id: number;
+    id: string;
 };
 export class RobotModel implements ProtoRobot {
     constructor(

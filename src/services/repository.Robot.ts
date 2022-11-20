@@ -6,7 +6,7 @@ export class RobotRepository implements Repository<RobotTypes> {
     constructor(url = '') {
         this.url = url
             ? url
-            : 'https://two022w7weekend-marcos-bonet.onrender.com/Robots';
+            : 'https://two022w7weekend-marcos-bonet.onrender.com/robots';
     }
 
     #createError(response: Response) {
@@ -18,10 +18,14 @@ export class RobotRepository implements Repository<RobotTypes> {
 
     // read / get
     getAll(): Promise<Array<RobotTypes>> {
-        return fetch(this.url).then((response) => {
-            if (response.ok) return response.json();
-            throw this.#createError(response);
-        });
+        return fetch(this.url)
+            .then((response) => {
+                if (response.ok) return response.json();
+                throw this.#createError(response);
+            })
+            .then((data) => {
+                return data.robots;
+            });
     }
 
     // create / post
