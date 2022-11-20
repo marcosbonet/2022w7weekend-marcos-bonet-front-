@@ -1,11 +1,8 @@
 import React from 'react';
-
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
-
 import './index.css';
-import { appStore } from './store/store.js';
-
+import { appStore } from './store/store';
 import ReactDOM from 'react-dom/client';
 import { RobotList } from './component/robots.list';
 

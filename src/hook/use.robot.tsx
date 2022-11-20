@@ -1,9 +1,9 @@
 import { useCallback, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RobotRepository } from '../services/robot.respository.js';
-import { rootState } from '../store/store.js';
-import * as ac from '../reducer/action.creator.js';
-import { ProtoRobot, RobotTypes } from '../types/robot.Types.js';
+import { rootState } from '../store/store';
+import * as ac from '../reducer/action.creator';
+import { ProtoRobot, RobotTypes } from '../types/robot.Types';
+import { RobotRepository } from '../services/repository.Robot';
 
 export const useRobot = () => {
     const robots = useSelector((state: rootState) => state.robots);

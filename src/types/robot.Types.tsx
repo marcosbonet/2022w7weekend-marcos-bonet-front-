@@ -17,3 +17,12 @@ export type ProtoRobot = {
 export type Id = {
     id: number;
 };
+export class RobotModel implements ProtoRobot {
+    constructor(
+        public robotName?: string,
+        public velocity?: number,
+        public resistent?: number,
+        public creationDate?: string,
+        public img?: string
+    ) {}
+}

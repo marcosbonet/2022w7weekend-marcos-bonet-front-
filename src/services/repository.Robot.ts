@@ -1,5 +1,5 @@
-import { RobotTypes } from '../types/robot.Types';
-import { Repository } from './repository';
+import { RobotTypes } from '../types/robot.Types.js';
+import { Repository } from './repository.js';
 
 export class RobotRepository implements Repository<RobotTypes> {
     url: string;
