@@ -4,7 +4,7 @@ import { Repository } from './repository.js';
 export class RobotRepository implements Repository<RobotTypes> {
     url: string;
     constructor(url = '') {
-        this.url = url ? url : (process.env.REACT_APP_URL_ROBOTS as string);
+        this.url = url ? url : (process.env.REACTAPPURLROBOTS as string);
     }
 
     #createError(response: Response) {
