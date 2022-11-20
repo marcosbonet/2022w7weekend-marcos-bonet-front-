@@ -5,8 +5,9 @@ import reportWebVitals from './reportWebVitals';
 
 import './index.css';
 import { appStore } from './store/store.js';
-import { App } from './component/robots';
+
 import ReactDOM from 'react-dom/client';
+import { RobotList } from './component/robots.list';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -14,7 +15,7 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <Provider store={appStore}>
-            <App />
+            <RobotList />
         </Provider>
     </React.StrictMode>
 );
