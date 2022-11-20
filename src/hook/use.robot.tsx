@@ -37,10 +37,10 @@ export const useRobot = () => {
             .catch((error: Error) => console.log(error.name, error.message));
     };
 
-    const handleDelete = (id: number) => {
+    const handleDelete = (id: string | number) => {
         apiRobot
-            .delete(id)
-            .then(() => dispatcher(ac.deleteActionCreator(id)))
+            .delete(id as number)
+            .then(() => dispatcher(ac.deleteActionCreator(id as string)))
             .catch((error: Error) => console.log(error.name, error.message));
     };
 
