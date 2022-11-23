@@ -4,7 +4,7 @@ import { renderHook, waitFor } from '@testing-library/react';
 import { robotReducer } from '../reducer/reducer';
 import { ProtoRobot, RobotTypes } from '../types/robot.Types';
 import { RobotRepository } from '../services/repository.Robot';
-import { rootState, rootStore } from '../store/store';
+import { rootState, rootStore } from '../../infrastructure/store/store';
 import { useRobot } from './use.robot';
 
 jest.mock('../services/repository.Robot');
@@ -17,31 +17,32 @@ describe('Given the custom hook useTasks', () => {
 
     beforeEach(() => {
         const mockProtoRobot = {
-            robotName: 'string',
-            velocity: 1,
-            resistent: 1,
-            creationDate: 'string',
-            img: 'string',
+            id: 'bs12df3',
+            name: 'Pablo',
+            img: 'url.img1',
+            speed: 5,
+            resistance: 4,
+            date: '05/85'
         };
         mockRobot = {
             ...mockProtoRobot,
-            id: '',
+            id: ''
         };
         mockAddedRobot = {
-            id: '',
-            robotName: 'string',
-            velocity: 1,
-            resistent: 1,
-            creationDate: 'string',
-            img: 'string',
+            id: 'qbs12df3',
+            name: 'qPablo',
+            img: 'url.img2',
+            speed: 5,
+            resistance: 4,
+            date: '05/85'
         };
         mockUpdatedRobot = {
-            id: '',
-            robotName: 'string',
-            velocity: 1,
-            resistent: 1,
-            creationDate: 'string',
-            img: 'string',
+            id: 'mbs12df3',
+            name: 'mqPablo',
+            img: 'url.img2',
+            speed: 5,
+            resistance: 4,
+            date: '05/85'
         };
     });
     describe('When we simulate its use in a component', () => {
@@ -80,16 +81,16 @@ describe('Given the custom hook useTasks', () => {
             const preloadedState: rootState = { robots: [] };
             mockStore = configureStore({
                 reducer: {
-                    robots: robotReducer,
+                    robots: robotReducer
                 },
-                preloadedState,
+                preloadedState
             });
 
             const wrapper = ({ children }: { children: JSX.Element }) => (
                 <Provider store={mockStore}>{children}</Provider>
             );
             ({
-                result: { current },
+                result: { current }
             } = renderHook(() => useRobot(), { wrapper }));
         });
 
@@ -103,7 +104,7 @@ describe('Given the custom hook useTasks', () => {
         test(`Then the hock call to the repository to add a new task 
             and dispatch an action for add the task to the state`, async () => {
             // Datos iniciales definidos en preloadedState
-            expect(current.tasks).toEqual([]);
+            expect(current.robots).toEqual([]);
             current.handleAdd(mockProtoTask);
             expect(RobotRepository.prototype.create).toHaveBeenCalled();
         });
@@ -111,7 +112,7 @@ describe('Given the custom hook useTasks', () => {
         test(`Then the hock call to the repository to update a task
             and dispatch an action for update the task in the state`, async () => {
             // Datos iniciales definidos en preloadedState
-            expect(current.tasks).toEqual([]);
+            expect(current.robots).toEqual([]);
             current.handleUpdate(mockUpdatedRobot);
             await waitFor(() => {
                 expect(RobotRepository.prototype.update).toHaveBeenCalled();
@@ -121,7 +122,7 @@ describe('Given the custom hook useTasks', () => {
         test(`Then the hock call to the repository to delete a task
             and dispatch an action for delete the task from the state`, async () => {
             // Datos iniciales definidos en preloadedState
-            expect(current.tasks).toEqual([]);
+            expect(current.robots).toEqual([]);
             current.handleDelete('');
             await waitFor(() => {
                 expect(RobotRepository.prototype.delete).toHaveBeenCalled();

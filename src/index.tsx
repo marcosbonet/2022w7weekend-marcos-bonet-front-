@@ -2,9 +2,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import { appStore } from './store/store';
+import { appStore } from './infrastructure/store/store';
 import ReactDOM from 'react-dom/client';
-import { RobotList } from './component/robots.list';
+import { RobotList } from './features/component/robot.list/robots.list';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <Provider store={appStore}>
-            <RobotList />
+            <RobotList item={[]} />
         </Provider>
     </React.StrictMode>
 );

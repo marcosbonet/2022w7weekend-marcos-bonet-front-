@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { rootState } from '../store/store';
+import { rootState } from '../../infrastructure/store/store';
 import * as ac from '../reducer/action.creator';
 import { ProtoRobot, RobotTypes } from '../types/robot.Types';
 import { RobotRepository } from '../services/repository.Robot';
@@ -14,7 +14,7 @@ export const useRobot = () => {
         () =>
             apiRobot
                 .getAll()
-                .then((robots) => dispatcher(ac.loadActionCreator(robots)))
+                .then(robots => dispatcher(ac.loadActionCreator(robots)))
                 .catch((error: Error) =>
                     console.log(error.name, error.message)
                 ),
@@ -49,6 +49,6 @@ export const useRobot = () => {
         handleLoad,
         handleAdd,
         handleUpdate,
-        handleDelete,
+        handleDelete
     };
 };

@@ -18,7 +18,7 @@ describe('Given an instance of RobotApi Service', () => {
         test(`Then if all are OK, it should return a Promise of an Array of robot`, async () => {
             const response = {
                 ok: true,
-                json: jest.fn().mockResolvedValue([]),
+                json: jest.fn().mockResolvedValue([])
             };
             global.fetch = jest.fn().mockResolvedValue(response);
             const result = await service.getAll();
@@ -29,7 +29,7 @@ describe('Given an instance of RobotApi Service', () => {
             const response = {
                 ok: false,
                 status: 500,
-                statusText: 'Server Error',
+                statusText: 'Server Error'
             };
             global.fetch = jest.fn().mockResolvedValue(response);
             await expect(async () => await service.getAll()).rejects.toThrow();
@@ -42,7 +42,7 @@ describe('Given an instance of RobotApi Service', () => {
                 it should return a Promise of the crated robot`, async () => {
             const response = {
                 ok: true,
-                json: jest.fn().mockResolvedValue(mockTask),
+                json: jest.fn().mockResolvedValue(mockTask)
             };
             global.fetch = jest.fn().mockResolvedValue(response);
             const result = await service.create(mockTask);
@@ -54,7 +54,7 @@ describe('Given an instance of RobotApi Service', () => {
             const response = {
                 ok: false,
                 status: 500,
-                statusText: 'Server Error',
+                statusText: 'Server Error'
             };
             global.fetch = jest.fn().mockResolvedValue(response);
             await expect(
@@ -67,7 +67,7 @@ describe('Given an instance of RobotApi Service', () => {
         test(`Then if id are OK (1), it should return a Promise void`, async () => {
             const itemId = 1;
             const response = {
-                ok: true,
+                ok: true
             };
             global.fetch = jest.fn().mockResolvedValue(response);
             const result = await service.delete(itemId);
@@ -79,7 +79,7 @@ describe('Given an instance of RobotApi Service', () => {
             const response = {
                 ok: false,
                 status: 500,
-                statusText: 'Server Error',
+                statusText: 'Server Error'
             };
             global.fetch = jest.fn().mockResolvedValue(response);
             await expect(
@@ -95,18 +95,18 @@ describe('Given an instance of RobotApi Service', () => {
             velocity: 1,
             resistent: 1,
             creationDate: 'string',
-            img: 'string',
+            img: 'string'
         };
         const mockFinalRobot = {
             ...new RobotModel(''),
             id: 1,
-            robotName: '',
+            robotName: ''
         };
 
         test(`Then if all are OK, it should return a Promise of ...`, async () => {
             const response = {
                 ok: true,
-                json: jest.fn().mockResolvedValue(mockFinalRobot),
+                json: jest.fn().mockResolvedValue(mockFinalRobot)
             };
             global.fetch = jest.fn().mockResolvedValue(response);
             const result = await service.update(mockUpdateRobot);
@@ -118,7 +118,7 @@ describe('Given an instance of RobotApi Service', () => {
             const response = {
                 ok: false,
                 status: 500,
-                statusText: 'Server Error',
+                statusText: 'Server Error'
             };
             global.fetch = jest.fn().mockResolvedValue(response);
             await expect(

@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { useRobot } from '../hook/use.robot';
-import { RobotTypes } from '../types/robot.Types';
-import { RobotItem } from './robots.item';
+import { useRobot } from '../../hook/use.robot';
+import { RobotTypes } from '../../types/robot.Types';
+import { RobotItem } from '../robot.item/robots.item';
 
-export function RobotList() {
+export function RobotList({ item }: { item: RobotTypes[] }) {
     const title = 'Robots';
     const { robots, handleLoad } = useRobot();
-
+    console.log(robots);
     useEffect(() => {
         handleLoad();
     }, [handleLoad]);

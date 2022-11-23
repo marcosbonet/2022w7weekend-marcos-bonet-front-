@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { robotReducer } from '../reducer/reducer';
+import { robotReducer } from '../../features/reducer/reducer';
 
 export const appStore = configureStore({
     reducer: {
-        robots: robotReducer,
+        robots: robotReducer
     },
-    preloadedState: { robots: [] },
+    preloadedState: { robots: [] }
 });
 
 export type rootStore = typeof appStore;

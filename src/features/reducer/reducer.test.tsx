@@ -5,11 +5,11 @@ import { robotReducer } from './reducer';
 describe('Given the function taskReducer', () => {
     const RobotMock: RobotTypes = {
         id: '',
-        robotName: '',
-        velocity: 1,
-        resistent: 1,
-        creationDate: 'string',
+        name: '',
         img: 'string',
+        speed: 1,
+        resistance: 1,
+        date: 'string'
     };
 
     let action: { type: string; payload: unknown };
@@ -19,7 +19,7 @@ describe('Given the function taskReducer', () => {
         beforeEach(() => {
             action = {
                 type: actionTypes.load,
-                payload: [RobotMock],
+                payload: [RobotMock]
             };
             state = [];
         });
@@ -33,7 +33,7 @@ describe('Given the function taskReducer', () => {
         beforeEach(() => {
             action = {
                 type: actionTypes.add,
-                payload: RobotMock,
+                payload: RobotMock
             };
             state = [];
         });
@@ -47,7 +47,7 @@ describe('Given the function taskReducer', () => {
         beforeEach(() => {
             action = {
                 type: actionTypes.update,
-                payload: { ...RobotMock, title: 'Update task' },
+                payload: { ...RobotMock, title: 'Update task' }
             };
             state = [RobotMock];
         });
@@ -61,7 +61,7 @@ describe('Given the function taskReducer', () => {
         beforeEach(() => {
             action = {
                 type: actionTypes.update,
-                payload: { ...RobotMock, id: '2', robotName: 'Update Robot' },
+                payload: { ...RobotMock, id: '2', robotName: 'Update Robot' }
             };
             state = [RobotMock];
         });
@@ -75,7 +75,7 @@ describe('Given the function taskReducer', () => {
         beforeEach(() => {
             action = {
                 type: actionTypes.delete,
-                payload: RobotMock.id,
+                payload: RobotMock.id
             };
             state = [RobotMock];
         });
@@ -89,7 +89,7 @@ describe('Given the function taskReducer', () => {
         beforeEach(() => {
             action = {
                 type: actionTypes.delete,
-                payload: { ...RobotMock, id: '2' },
+                payload: { ...RobotMock, id: '2' }
             };
             state = [RobotMock];
         });
@@ -103,7 +103,7 @@ describe('Given the function taskReducer', () => {
         beforeEach(() => {
             action = {
                 type: '',
-                payload: null,
+                payload: null
             };
             state = [RobotMock];
         });
